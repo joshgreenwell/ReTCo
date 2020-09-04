@@ -1,0 +1,11 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "retco:dimensional_energy_siphoner"
+		}
+	],
+	"result": {
+		"item": "retco:deconstructed_dimensional_energy_siphoner"
+	}
+}

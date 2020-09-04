@@ -1,0 +1,14 @@
+{
+  "block.retco.dimensional_energy_siphoner": "Dimensional Energy Siphoner",
+  "block.retco.dimensional_energy_siphoner_mk2": "Dimensional Energy Siphoner MK2",
+  "block.retco.dimensional_residue_ore": "Dimensional Residue Ore",
+  "block.retco.dimensional_block": "Dimensional Block",
+
+  "item.retco.dimensional_residue": "Dimensional Residue",
+  "item.retco.dimensional_ingot": "Dimensional Ingot",
+  "item.retco.forming_tool": "Forming Tool",
+  
+  "itemGroup.retco": "ReTCo",
+  
+  "gui.retco.energy": "Energy %s"
+}

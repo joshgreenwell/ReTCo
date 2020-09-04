@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"$# ",
+		"^$ ",
+		"   "
+	],
+	"key": {
+		"#": {
+			"item": "retco:dimensional_ingot"
+    },
+    "$": {
+			"item": "minecraft:gold_nugget"
+    },
+    "^": {
+      "item": "minecraft:redstone"
+    }
+	},
+	"result": {
+		"item": "retco:enhanced_dimensional_ingot"
+	}
+}

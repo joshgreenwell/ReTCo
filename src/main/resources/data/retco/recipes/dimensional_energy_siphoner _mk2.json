@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"@@@",
+		"$#$",
+		"^^^"
+	],
+	"key": {
+		"#": {
+			"item": "retco:deconstructed_dimensional_energy_siphoner"
+    },
+    "$": {
+			"item": "minecraft:enhanced_dimensional_ingot"
+    },
+    "@": {
+      "item": "minecraft:glass"
+    },
+    "^": {
+      "item": "minecraft:redstone"
+    }
+	},
+	"result": {
+		"item": "retco:dimensional_energy_siphoner_m2"
+	}
+}
