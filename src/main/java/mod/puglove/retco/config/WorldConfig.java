@@ -21,7 +21,7 @@ public final class WorldConfig extends BaseReTCoConfig {
     userGenVersion = CachedIntValue.wrap(this,
         builder.comment("Change this value to cause Mekanism to regen its ore in all loaded chunks.")
             .defineInRange("userWorldGenVersion", 0, 0, Integer.MAX_VALUE));
-    dimensional_residue = new OreConfig(this, builder, "dimensional_residue", true, 16, 8, 0, 0, 60);
+    dimensional_residue = new OreConfig(this, builder, "dimensional_residue", true, 2, 3, 0, 0, 30);
     builder.pop();
     configSpec = builder.build();
   }
