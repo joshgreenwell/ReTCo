@@ -1,13 +1,18 @@
 package mod.puglove.retco.tileentity;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.fluid.IFluidState;
 import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.tileentity.ITickableTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Direction;
@@ -15,11 +20,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.EnergyStorage;
 import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -29,27 +37,27 @@ import org.apache.logging.log4j.Logger;
 
 import mod.puglove.retco.ModUtil;
 import mod.puglove.retco.ReTCo;
-import mod.puglove.retco.container.DimensionalEnergySiphonerContainer;
+import mod.puglove.retco.container.DimensionalEnergySiphonerMK3Container;
 import mod.puglove.retco.energy.SettableEnergyStorage;
 import mod.puglove.retco.registries.ModBlocks;
 import mod.puglove.retco.registries.ModTileEntityTypes;
 
-public class DimensionalEnergySiphonerTileEntity extends TileEntity
+public class DimensionalEnergySiphonerMK3TileEntity extends TileEntity
     implements ITickableTileEntity, INamedContainerProvider {
 
   public static Logger logger = LogManager.getLogger(ReTCo.MOD_NAME);
 
   private static final String ENERGY_TAG = "energy";
 
-  public final SettableEnergyStorage energy = new SettableEnergyStorage(100000, 1000, 1000);
+  public final SettableEnergyStorage energy = new SettableEnergyStorage(3000000, 25000, 25000);
 
   // Store the capability lazy optionals as fields to keep the amount of objects
   // we use to a minimum
   private final LazyOptional<EnergyStorage> energyCapabilityExternal = LazyOptional.of(() -> this.energy);
   private int lastEnergy = -1;
 
-  public DimensionalEnergySiphonerTileEntity() {
-    super(ModTileEntityTypes.DIMENSIONAL_ENERGY_SIPHONER.get());
+  public DimensionalEnergySiphonerMK3TileEntity() {
+    super(ModTileEntityTypes.DIMENSIONAL_ENERGY_SIPHONER_MK3.get());
   }
 
   @Override
@@ -62,9 +70,9 @@ public class DimensionalEnergySiphonerTileEntity extends TileEntity
     final BlockPos pos = this.pos;
     final SettableEnergyStorage energy = this.energy;
 
-    energy.receiveEnergy(20, false);
+    energy.receiveEnergy(500, false);
 
-    final int transferAmountPerTick = 1000;
+    final int transferAmountPerTick = 25000;
     for (Direction direction : ModUtil.DIRECTIONS) {
       final TileEntity te = world.getTileEntity(pos.offset(direction));
       if (te == null) {
@@ -188,7 +196,7 @@ public class DimensionalEnergySiphonerTileEntity extends TileEntity
   @Nonnull
   @Override
   public ITextComponent getDisplayName() {
-    return new TranslationTextComponent(ModBlocks.DIMENSIONAL_ENERGY_SIPHONER.get().getTranslationKey());
+    return new TranslationTextComponent(ModBlocks.DIMENSIONAL_ENERGY_SIPHONER_MK3.get().getTranslationKey());
   }
 
   /**
@@ -200,7 +208,7 @@ public class DimensionalEnergySiphonerTileEntity extends TileEntity
   @Nonnull
   @Override
   public Container createMenu(final int windowId, final PlayerInventory inventory, final PlayerEntity player) {
-    return new DimensionalEnergySiphonerContainer(windowId, inventory, this);
+    return new DimensionalEnergySiphonerMK3Container(windowId, inventory, this);
   }
 
 }

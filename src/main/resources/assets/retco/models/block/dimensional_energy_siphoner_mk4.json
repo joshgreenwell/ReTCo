@@ -1,10 +1,10 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "retco:block/dimensional_energy_siphon_mk2_top",
+    "0": "retco:block/dimensional_energy_siphon_mk4_top",
     "1": "minecraft:block/furnace_side",
     "2": "minecraft:block/furnace_top",
-    "particle": "retco:block/dimensional_energy_siphon_mk2_top"
+    "particle": "retco:block/dimensional_energy_siphon_mk4_top"
   },
   "elements": [
     {

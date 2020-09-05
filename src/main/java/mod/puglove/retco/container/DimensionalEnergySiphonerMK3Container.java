@@ -10,6 +10,7 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IWorldPosCallable;
 import net.minecraftforge.fml.network.IContainerFactory;
+import net.minecraftforge.items.SlotItemHandler;
 
 import javax.annotation.Nonnull;
 
@@ -19,15 +20,15 @@ import org.apache.logging.log4j.Logger;
 import mod.puglove.retco.ReTCo;
 import mod.puglove.retco.registries.ModBlocks;
 import mod.puglove.retco.registries.ModContainerTypes;
-import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
+import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK3TileEntity;
 
 import java.util.Objects;
 
-public class DimensionalEnergySiphonerContainer extends Container {
+public class DimensionalEnergySiphonerMK3Container extends Container {
 
   public static Logger logger = LogManager.getLogger(ReTCo.MOD_NAME);
 
-  public final DimensionalEnergySiphonerTileEntity tileEntity;
+  public final DimensionalEnergySiphonerMK3TileEntity tileEntity;
   private final IWorldPosCallable canInteractWithCallable;
 
   /**
@@ -35,7 +36,7 @@ public class DimensionalEnergySiphonerContainer extends Container {
    * {@link ContainerType#create(IContainerFactory)} Calls the logical-server-side
    * constructor with the TileEntity at the pos in the PacketBuffer
    */
-  public DimensionalEnergySiphonerContainer(final int windowId, final PlayerInventory playerInventory,
+  public DimensionalEnergySiphonerMK3Container(final int windowId, final PlayerInventory playerInventory,
       final PacketBuffer data) {
     this(windowId, playerInventory, getTileEntity(playerInventory, data));
   }
@@ -45,15 +46,14 @@ public class DimensionalEnergySiphonerContainer extends Container {
    * {@link HeatCollectorTileEntity#createMenu} and logical-client-side from
    * {@link #HeatCollectorContainer(int, PlayerInventory, PacketBuffer)}
    */
-  public DimensionalEnergySiphonerContainer(final int windowId, final PlayerInventory playerInventory,
-      final DimensionalEnergySiphonerTileEntity tileEntity) {
-    super(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER.get(), windowId);
+  public DimensionalEnergySiphonerMK3Container(final int windowId, final PlayerInventory playerInventory,
+      final DimensionalEnergySiphonerMK3TileEntity tileEntity) {
+    super(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK3.get(), windowId);
     this.tileEntity = tileEntity;
     this.canInteractWithCallable = IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos());
 
     // Add all the slots for the tileEntity's inventory and the playerInventory to
     // this container
-
     final int playerInventoryStartX = 8;
     final int playerInventoryStartY = 84;
     final int slotSizePlus2 = 18; // slots are 16x16, plus 2 (for spacing/borders) is 18x18
@@ -73,12 +73,12 @@ public class DimensionalEnergySiphonerContainer extends Container {
     }
   }
 
-  private static DimensionalEnergySiphonerTileEntity getTileEntity(final PlayerInventory playerInventory, final PacketBuffer data) {
+  private static DimensionalEnergySiphonerMK3TileEntity getTileEntity(final PlayerInventory playerInventory, final PacketBuffer data) {
     Objects.requireNonNull(playerInventory, "playerInventory cannot be null!");
     Objects.requireNonNull(data, "data cannot be null!");
     final TileEntity tileAtPos = playerInventory.player.world.getTileEntity(data.readBlockPos());
-    if (tileAtPos instanceof DimensionalEnergySiphonerTileEntity) {
-      return (DimensionalEnergySiphonerTileEntity) tileAtPos;
+    if (tileAtPos instanceof DimensionalEnergySiphonerMK3TileEntity) {
+      return (DimensionalEnergySiphonerMK3TileEntity) tileAtPos;
     }
     throw new IllegalStateException("Tile entity is not correct! " + tileAtPos);
   }
@@ -125,7 +125,7 @@ public class DimensionalEnergySiphonerContainer extends Container {
 
   @Override
   public boolean canInteractWith(@Nonnull final PlayerEntity player) {
-    return isWithinUsableDistance(canInteractWithCallable, player, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER.get());
+    return isWithinUsableDistance(canInteractWithCallable, player, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER_MK3.get());
   }
 
 }

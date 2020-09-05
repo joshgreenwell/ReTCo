@@ -22,16 +22,16 @@ import javax.annotation.Nullable;
 
 import mod.puglove.retco.ModUtil;
 import mod.puglove.retco.registries.ModTileEntityTypes;
-import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK2TileEntity;
+import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK3TileEntity;
 
 import java.util.stream.Stream;
 
-public class DimensionalEnergySiphonerMK2Block extends Block {
+public class DimensionalEnergySiphonerMK3Block extends Block {
   private static final VoxelShape SHAPE = Stream
       .of(Block.makeCuboidShape(1, 0, 1, 15, 13, 15), Block.makeCuboidShape(2, 13, 2, 14, 14, 14))
       .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
-  public DimensionalEnergySiphonerMK2Block(final Properties properties) {
+  public DimensionalEnergySiphonerMK3Block(final Properties properties) {
 		super(properties);
 	}
 
@@ -44,7 +44,7 @@ public class DimensionalEnergySiphonerMK2Block extends Block {
   @Override
   public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
     // Always use TileEntityType#create to allow registry overrides to work.
-    return ModTileEntityTypes.DIMENSIONAL_ENERGY_SIPHONER_MK2.get().create();
+    return ModTileEntityTypes.DIMENSIONAL_ENERGY_SIPHONER_MK3.get().create();
   }
 
   /**
@@ -86,8 +86,8 @@ public class DimensionalEnergySiphonerMK2Block extends Block {
       final PlayerEntity player, final Hand handIn, final BlockRayTraceResult hit) {
     if (!worldIn.isRemote) {
       final TileEntity tileEntity = worldIn.getTileEntity(pos);
-      if (tileEntity instanceof DimensionalEnergySiphonerMK2TileEntity)
-        NetworkHooks.openGui((ServerPlayerEntity) player, (DimensionalEnergySiphonerMK2TileEntity) tileEntity, pos);
+      if (tileEntity instanceof DimensionalEnergySiphonerMK3TileEntity)
+        NetworkHooks.openGui((ServerPlayerEntity) player, (DimensionalEnergySiphonerMK3TileEntity) tileEntity, pos);
     }
     return ActionResultType.SUCCESS;
   }
@@ -102,8 +102,8 @@ public class DimensionalEnergySiphonerMK2Block extends Block {
   @Override
   public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos) {
     final TileEntity tileEntity = worldIn.getTileEntity(pos);
-    if (tileEntity instanceof DimensionalEnergySiphonerMK2TileEntity)
-      return ModUtil.calcRedstoneFromEnergyStorage(((DimensionalEnergySiphonerMK2TileEntity) tileEntity).energy);
+    if (tileEntity instanceof DimensionalEnergySiphonerMK3TileEntity)
+      return ModUtil.calcRedstoneFromEnergyStorage(((DimensionalEnergySiphonerMK3TileEntity) tileEntity).energy);
     return super.getComparatorInputOverride(blockState, worldIn, pos);
   }
 

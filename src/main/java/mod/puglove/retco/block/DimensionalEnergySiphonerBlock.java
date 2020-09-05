@@ -4,7 +4,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -17,7 +16,6 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.network.NetworkHooks;
-import net.minecraftforge.items.ItemStackHandler;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -30,14 +28,12 @@ import java.util.stream.Stream;
 
 public class DimensionalEnergySiphonerBlock extends Block {
   private static final VoxelShape SHAPE = Stream
-      .of(Block.makeCuboidShape(11, 0, 0, 16, 16, 5), Block.makeCuboidShape(11, 0, 11, 16, 16, 16),
-          Block.makeCuboidShape(0, 0, 11, 5, 16, 16), Block.makeCuboidShape(0, 0, 0, 5, 16, 5),
-          Block.makeCuboidShape(5, 5, 5, 11, 11, 11))
+      .of(Block.makeCuboidShape(1, 0, 1, 15, 13, 15), Block.makeCuboidShape(2, 13, 2, 14, 14, 14))
       .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
   public DimensionalEnergySiphonerBlock(final Properties properties) {
-		super(properties);
-	}
+    super(properties);
+  }
 
   @Override
   public boolean hasTileEntity(final BlockState state) {
@@ -74,14 +70,6 @@ public class DimensionalEnergySiphonerBlock extends Block {
    */
   @Override
   public void onReplaced(BlockState oldState, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-    if (oldState.getBlock() != newState.getBlock()) {
-      TileEntity tileEntity = worldIn.getTileEntity(pos);
-      if (tileEntity instanceof DimensionalEnergySiphonerTileEntity) {
-        final ItemStackHandler inventory = ((DimensionalEnergySiphonerTileEntity) tileEntity).inventory;
-        for (int slot = 0; slot < inventory.getSlots(); ++slot)
-          InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), inventory.getStackInSlot(slot));
-      }
-    }
     super.onReplaced(oldState, worldIn, pos, newState, isMoving);
   }
 

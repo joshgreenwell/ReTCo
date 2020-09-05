@@ -3,20 +3,20 @@ package mod.puglove.retco.client.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import mod.puglove.retco.ReTCo;
-import mod.puglove.retco.container.DimensionalEnergySiphonerContainer;
+import mod.puglove.retco.container.DimensionalEnergySiphonerMK3Container;
 import mod.puglove.retco.energy.SettableEnergyStorage;
-import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
+import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK3TileEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class DimensionalEnergySiphonerScreen extends ContainerScreen<DimensionalEnergySiphonerContainer> {
+public class DimensionalEnergySiphonerMK3Screen extends ContainerScreen<DimensionalEnergySiphonerMK3Container> {
   private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(ReTCo.MODID,
-      "textures/gui/container/dimensional_energy_siphoner.png");
+      "textures/gui/container/dimensional_energy_siphoner_mk3.png");
 
-  public DimensionalEnergySiphonerScreen(final DimensionalEnergySiphonerContainer container,
+  public DimensionalEnergySiphonerMK3Screen(final DimensionalEnergySiphonerMK3Container container,
       final PlayerInventory inventory, final ITextComponent title) {
     super(container, inventory, title);
   }
@@ -60,7 +60,7 @@ public class DimensionalEnergySiphonerScreen extends ContainerScreen<Dimensional
 
     this.blit(startX, startY, 0, 0, this.xSize, this.ySize);
 
-    final DimensionalEnergySiphonerTileEntity tileEntity = container.tileEntity;
+    final DimensionalEnergySiphonerMK3TileEntity tileEntity = container.tileEntity;
 
     final SettableEnergyStorage energy = tileEntity.energy;
     final int energyStored = energy.getEnergyStored();
