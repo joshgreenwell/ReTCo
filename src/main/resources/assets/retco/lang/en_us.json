@@ -17,6 +17,11 @@
   "item.retco.dimensional_pickaxe": "Dimensional Pickaxe",
   "item.retco.dimensional_shovel": "Dimensional Shovel",
   "item.retco.dimensional_hoe": "Dimensional Hoe",
+
+  "item.retco.dimensional_helmet": "Dimensional Helmet",
+  "item.retco.dimensional_chestplate": "Dimensional Chestplate",
+  "item.retco.dimensional_leggings": "Dimensional Leggings",
+  "item.retco.dimensional_boots": "Dimensional Boots",
   
   "itemGroup.retco": "ReTCo",
   

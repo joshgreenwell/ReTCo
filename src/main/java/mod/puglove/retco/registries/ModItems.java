@@ -1,7 +1,10 @@
 package mod.puglove.retco.registries;
 
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.armor.ReTCoArmorMaterial;
 import mod.puglove.retco.tools.ReTCoItemTier;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.Item;
@@ -53,4 +56,19 @@ public class ModItems {
           new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
 
   // Armor
+  public static final RegistryObject<ArmorItem> DIMENSIONAL_HELMET = ITEMS.register("dimensional_helmet",
+      () -> new ArmorItem(ReTCoArmorMaterial.DIMENSIONAL, EquipmentSlotType.HEAD,
+          new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  public static final RegistryObject<ArmorItem> DIMENSIONAL_CHESTPLATE = ITEMS.register("dimensional_chestplate",
+      () -> new ArmorItem(ReTCoArmorMaterial.DIMENSIONAL, EquipmentSlotType.CHEST,
+          new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  public static final RegistryObject<ArmorItem> DIMENSIONAL_LEGGINGS = ITEMS.register("dimensional_leggings",
+      () -> new ArmorItem(ReTCoArmorMaterial.DIMENSIONAL, EquipmentSlotType.LEGS,
+          new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  public static final RegistryObject<ArmorItem> DIMENSIONAL_BOOTS = ITEMS.register("dimensional_boots",
+      () -> new ArmorItem(ReTCoArmorMaterial.DIMENSIONAL, EquipmentSlotType.FEET,
+          new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
 }

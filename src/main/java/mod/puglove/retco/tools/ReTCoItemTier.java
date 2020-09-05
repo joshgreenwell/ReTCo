@@ -11,7 +11,7 @@ public enum ReTCoItemTier implements IItemTier {
   
   DIMENSIONAL(4, 2000, 9.0f, 2.0f, 12, () -> {
     // Can be any item that uses this tier material
-    return Ingredient.fromItems(ModItems.DIMENSIONAL_SWORD.get());
+    return Ingredient.fromItems(ModItems.DIMENSIONAL_INGOT.get());
   });
 
   private final int harvestLevel;
