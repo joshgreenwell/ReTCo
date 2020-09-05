@@ -9,7 +9,14 @@
   "item.retco.dimensional_ingot": "Dimensional Ingot",
   "item.retco.enhanced_dimensional_ingot": "Enhanced Dimensional Ingot",
   "item.retco.deconstructed_dimensional_energy_siphon": "Deconstructed Dimensional Energy Siphon",
+
   "item.retco.forming_tool": "Forming Tool",
+
+  "item.retco.dimensional_sword": "Dimensional Sword",
+  "item.retco.dimensional_axe": "Dimensional Axe",
+  "item.retco.dimensional_pickaxe": "Dimensional Pickaxe",
+  "item.retco.dimensional_shovel": "Dimensional Shovel",
+  "item.retco.dimensional_hoe": "Dimensional Hoe",
   
   "itemGroup.retco": "ReTCo",
   
