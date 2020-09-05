@@ -24,10 +24,10 @@ public class ModBlocks {
           .harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)));
 
   public static final RegistryObject<Block> DIMENSIONAL_ENERGY_SIPHONER = BLOCKS.register("dimensional_energy_siphoner",
-      () -> new DimensionalEnergySiphonerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 6.0F)
+      () -> new DimensionalEnergySiphonerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 1200.0F)
           .harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)));
 
   public static final RegistryObject<Block> DIMENSIONAL_ENERGY_SIPHONER_MK2 = BLOCKS.register("dimensional_energy_siphoner_mk2",
-      () -> new DimensionalEnergySiphonerMK2Block(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 6.0F)
+      () -> new DimensionalEnergySiphonerMK2Block(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 1200.0F)
           .harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)));
 }

@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.client.gui.DimensionalEnergySiphonerMK2Screen;
 import mod.puglove.retco.client.gui.DimensionalEnergySiphonerScreen;
 import mod.puglove.retco.registries.ModContainerTypes;
 
@@ -43,7 +44,8 @@ public final class ClientModEventSubscriber {
 		// Register ContainerType Screens
 		// ScreenManager.registerFactory is not safe to call during parallel mod loading so we queue it to run later
 		DeferredWorkQueue.runLater(() -> {
-			ScreenManager.registerFactory(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER.get(), DimensionalEnergySiphonerScreen::new);
+      ScreenManager.registerFactory(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER.get(), DimensionalEnergySiphonerScreen::new);
+      ScreenManager.registerFactory(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK2.get(), DimensionalEnergySiphonerMK2Screen::new);
 			logger.debug("Registered ContainerType Screens");
 		});
 

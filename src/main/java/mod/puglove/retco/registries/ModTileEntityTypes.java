@@ -1,6 +1,7 @@
 package mod.puglove.retco.registries;
 
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK2TileEntity;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
@@ -27,7 +28,7 @@ public final class ModTileEntityTypes {
       .register("dimensional_energy_siphoner", () -> TileEntityType.Builder
           .create(DimensionalEnergySiphonerTileEntity::new, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER.get()).build(null));
 
-  public static final RegistryObject<TileEntityType<DimensionalEnergySiphonerTileEntity>> DIMENSIONAL_ENERGY_SIPHONER_MK2 = TILE_ENTITY_TYPES
+  public static final RegistryObject<TileEntityType<DimensionalEnergySiphonerMK2TileEntity>> DIMENSIONAL_ENERGY_SIPHONER_MK2 = TILE_ENTITY_TYPES
       .register("dimensional_energy_siphoner_mk2", () -> TileEntityType.Builder
-          .create(DimensionalEnergySiphonerTileEntity::new, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER_MK2.get()).build(null));
+          .create(DimensionalEnergySiphonerMK2TileEntity::new, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER_MK2.get()).build(null));
 }

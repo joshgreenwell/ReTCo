@@ -1,7 +1,7 @@
 {
 	"variants": {
 		"": {
-			"model": "retco:block/dimensional_energy_siphoner"
+			"model": "retco:block/dimensional_energy_siphoner_mk2"
 		}
 	}
 }

@@ -3,20 +3,20 @@ package mod.puglove.retco.client.gui;
 import com.mojang.blaze3d.systems.RenderSystem;
 
 import mod.puglove.retco.ReTCo;
-import mod.puglove.retco.container.DimensionalEnergySiphonerContainer;
+import mod.puglove.retco.container.DimensionalEnergySiphonerMK2Container;
 import mod.puglove.retco.energy.SettableEnergyStorage;
-import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
+import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK2TileEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TranslationTextComponent;
 
-public class DimensionalEnergySiphonerScreen extends ContainerScreen<DimensionalEnergySiphonerContainer> {
+public class DimensionalEnergySiphonerMK2Screen extends ContainerScreen<DimensionalEnergySiphonerMK2Container> {
   private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(ReTCo.MODID,
-      "textures/gui/container/dimensional_energy_siphoner.png");
+      "textures/gui/container/dimensional_energy_siphoner_mk2.png");
 
-  public DimensionalEnergySiphonerScreen(final DimensionalEnergySiphonerContainer container,
+  public DimensionalEnergySiphonerMK2Screen(final DimensionalEnergySiphonerMK2Container container,
       final PlayerInventory inventory, final ITextComponent title) {
     super(container, inventory, title);
   }
@@ -29,7 +29,7 @@ public class DimensionalEnergySiphonerScreen extends ContainerScreen<Dimensional
 
     int relMouseX = mouseX - this.guiLeft;
     int relMouseY = mouseY - this.guiTop;
-    boolean energyBarHovered = relMouseX > 151 && relMouseX < 166 && relMouseY > 10 && relMouseY < 76;
+    boolean energyBarHovered = relMouseX > 81 && relMouseX < 94 && relMouseY > 18 && relMouseY < 70;
     if (energyBarHovered) {
       String tooltip = new TranslationTextComponent("gui." + ReTCo.MODID + ".energy",
           this.container.tileEntity.energy.getEnergyStored()).getFormattedText();
@@ -60,13 +60,13 @@ public class DimensionalEnergySiphonerScreen extends ContainerScreen<Dimensional
 
     this.blit(startX, startY, 0, 0, this.xSize, this.ySize);
 
-    final DimensionalEnergySiphonerTileEntity tileEntity = container.tileEntity;
+    final DimensionalEnergySiphonerMK2TileEntity tileEntity = container.tileEntity;
 
     final SettableEnergyStorage energy = tileEntity.energy;
     final int energyStored = energy.getEnergyStored();
     if (energyStored > 0) { // Draw energy bar
       final int energyProgress = Math.round((float) energyStored / energy.getMaxEnergyStored() * 65);
-      this.blit(startX + 152, startY + 10 + 65 - energyProgress, 176, 14, 14, energyProgress);
+      this.blit(startX + 81, startY + 18 + 52 - energyProgress, 176, 14, 14, energyProgress);
     }
   }
 }

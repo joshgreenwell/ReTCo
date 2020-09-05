@@ -10,7 +10,7 @@
 			"item": "retco:deconstructed_dimensional_energy_siphoner"
     },
     "$": {
-			"item": "minecraft:enhanced_dimensional_ingot"
+			"item": "retco:enhanced_dimensional_ingot"
     },
     "@": {
       "item": "minecraft:glass"
@@ -20,6 +20,6 @@
     }
 	},
 	"result": {
-		"item": "retco:dimensional_energy_siphoner_m2"
+		"item": "retco:dimensional_energy_siphoner_mk2"
 	}
 }

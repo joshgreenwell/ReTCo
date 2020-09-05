@@ -47,31 +47,12 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
 
   public static Logger logger = LogManager.getLogger(ReTCo.MOD_NAME);
 
-  public static final int FUEL_SLOT = 0;
-
-  private static final String INVENTORY_TAG = "inventory";
   private static final String ENERGY_TAG = "energy";
 
-  public final ItemStackHandler inventory = new ItemStackHandler(1) {
-    @Override
-    public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
-      return FurnaceTileEntity.isFuel(stack);
-    }
-
-    @Override
-    protected void onContentsChanged(final int slot) {
-      super.onContentsChanged(slot);
-      // Mark the tile entity as having changed whenever its inventory changes.
-      // "markDirty" tells vanilla that the chunk containing the tile entity has
-      // changed and means the game will save the chunk to disk later.
-      DimensionalEnergySiphonerMK2TileEntity.this.markDirty();
-    }
-  };
   public final SettableEnergyStorage energy = new SettableEnergyStorage(1000000, 10000, 10000);
 
   // Store the capability lazy optionals as fields to keep the amount of objects
   // we use to a minimum
-  private final LazyOptional<ItemStackHandler> inventoryCapabilityExternal = LazyOptional.of(() -> this.inventory);
   private final LazyOptional<EnergyStorage> energyCapabilityExternal = LazyOptional.of(() -> this.energy);
   private int lastEnergy = -1;
 
@@ -88,21 +69,6 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
 
     final BlockPos pos = this.pos;
     final SettableEnergyStorage energy = this.energy;
-
-    final ItemStack fuelStack = this.inventory.getStackInSlot(FUEL_SLOT).copy();
-    if (!fuelStack.isEmpty()) {
-      int energyToReceive = ForgeHooks.getBurnTime(fuelStack);
-      // Only use the stack if we can receive 100% of the energy from it
-      if (energy.receiveEnergy(energyToReceive, true) == energyToReceive) {
-        energy.receiveEnergy(energyToReceive, false);
-        if (fuelStack.hasContainerItem())
-          inventory.setStackInSlot(FUEL_SLOT, fuelStack.getContainerItem());
-        else {
-          fuelStack.shrink(1);
-          inventory.setStackInSlot(FUEL_SLOT, fuelStack); // Update the data
-        }
-      }
-    }
 
     energy.receiveEnergy(100, false);
 
@@ -147,8 +113,6 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
   @Nonnull
   @Override
   public <T> LazyOptional<T> getCapability(@Nonnull final Capability<T> cap, @Nullable final Direction side) {
-    if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
-      return inventoryCapabilityExternal.cast();
     if (cap == CapabilityEnergy.ENERGY)
       return energyCapabilityExternal.cast();
     return super.getCapability(cap, side);
@@ -177,7 +141,6 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
   @Override
   public void read(final CompoundNBT compound) {
     super.read(compound);
-    this.inventory.deserializeNBT(compound.getCompound(INVENTORY_TAG));
     this.energy.setEnergy(compound.getInt(ENERGY_TAG));
   }
 
@@ -188,7 +151,6 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
   @Override
   public CompoundNBT write(final CompoundNBT compound) {
     super.write(compound);
-    compound.put(INVENTORY_TAG, this.inventory.serializeNBT());
     compound.putInt(ENERGY_TAG, this.energy.getEnergyStored());
     return compound;
   }
@@ -228,14 +190,13 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
     // (by other mods) don't
     // continue to reference our capabilities and try to use them and/or prevent
     // them from being garbage collected
-    inventoryCapabilityExternal.invalidate();
     energyCapabilityExternal.invalidate();
   }
 
   @Nonnull
   @Override
   public ITextComponent getDisplayName() {
-    return new TranslationTextComponent(ModBlocks.DIMENSIONAL_ENERGY_SIPHONER.get().getTranslationKey());
+    return new TranslationTextComponent(ModBlocks.DIMENSIONAL_ENERGY_SIPHONER_MK2.get().getTranslationKey());
   }
 
   /**

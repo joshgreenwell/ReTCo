@@ -6,6 +6,8 @@
 
   "item.retco.dimensional_residue": "Dimensional Residue",
   "item.retco.dimensional_ingot": "Dimensional Ingot",
+  "item.retco.enhanced_dimensional_ingot": "Enhanced Dimensional Ingot",
+  "item.retco.deconstructed_dimensional_energy_siphon": "Deconstructed Dimensional Energy Siphon",
   "item.retco.forming_tool": "Forming Tool",
   
   "itemGroup.retco": "ReTCo",

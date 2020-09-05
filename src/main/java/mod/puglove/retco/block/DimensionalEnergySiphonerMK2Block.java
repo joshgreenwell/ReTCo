@@ -24,15 +24,13 @@ import javax.annotation.Nullable;
 
 import mod.puglove.retco.ModUtil;
 import mod.puglove.retco.registries.ModTileEntityTypes;
-import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
+import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK2TileEntity;
 
 import java.util.stream.Stream;
 
 public class DimensionalEnergySiphonerMK2Block extends Block {
   private static final VoxelShape SHAPE = Stream
-      .of(Block.makeCuboidShape(11, 0, 0, 16, 16, 5), Block.makeCuboidShape(11, 0, 11, 16, 16, 16),
-          Block.makeCuboidShape(0, 0, 11, 5, 16, 16), Block.makeCuboidShape(0, 0, 0, 5, 16, 5),
-          Block.makeCuboidShape(5, 5, 5, 11, 11, 11))
+      .of(Block.makeCuboidShape(1, 0, 1, 15, 13, 15), Block.makeCuboidShape(2, 13, 2, 14, 14, 14))
       .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
   public DimensionalEnergySiphonerMK2Block(final Properties properties) {
@@ -48,7 +46,7 @@ public class DimensionalEnergySiphonerMK2Block extends Block {
   @Override
   public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
     // Always use TileEntityType#create to allow registry overrides to work.
-    return ModTileEntityTypes.DIMENSIONAL_ENERGY_SIPHONER.get().create();
+    return ModTileEntityTypes.DIMENSIONAL_ENERGY_SIPHONER_MK2.get().create();
   }
 
   /**
@@ -74,14 +72,6 @@ public class DimensionalEnergySiphonerMK2Block extends Block {
    */
   @Override
   public void onReplaced(BlockState oldState, World worldIn, BlockPos pos, BlockState newState, boolean isMoving) {
-    if (oldState.getBlock() != newState.getBlock()) {
-      TileEntity tileEntity = worldIn.getTileEntity(pos);
-      if (tileEntity instanceof DimensionalEnergySiphonerTileEntity) {
-        final ItemStackHandler inventory = ((DimensionalEnergySiphonerTileEntity) tileEntity).inventory;
-        for (int slot = 0; slot < inventory.getSlots(); ++slot)
-          InventoryHelper.spawnItemStack(worldIn, pos.getX(), pos.getY(), pos.getZ(), inventory.getStackInSlot(slot));
-      }
-    }
     super.onReplaced(oldState, worldIn, pos, newState, isMoving);
   }
 
@@ -98,8 +88,8 @@ public class DimensionalEnergySiphonerMK2Block extends Block {
       final PlayerEntity player, final Hand handIn, final BlockRayTraceResult hit) {
     if (!worldIn.isRemote) {
       final TileEntity tileEntity = worldIn.getTileEntity(pos);
-      if (tileEntity instanceof DimensionalEnergySiphonerTileEntity)
-        NetworkHooks.openGui((ServerPlayerEntity) player, (DimensionalEnergySiphonerTileEntity) tileEntity, pos);
+      if (tileEntity instanceof DimensionalEnergySiphonerMK2TileEntity)
+        NetworkHooks.openGui((ServerPlayerEntity) player, (DimensionalEnergySiphonerMK2TileEntity) tileEntity, pos);
     }
     return ActionResultType.SUCCESS;
   }
@@ -114,8 +104,8 @@ public class DimensionalEnergySiphonerMK2Block extends Block {
   @Override
   public int getComparatorInputOverride(BlockState blockState, World worldIn, BlockPos pos) {
     final TileEntity tileEntity = worldIn.getTileEntity(pos);
-    if (tileEntity instanceof DimensionalEnergySiphonerTileEntity)
-      return ModUtil.calcRedstoneFromEnergyStorage(((DimensionalEnergySiphonerTileEntity) tileEntity).energy);
+    if (tileEntity instanceof DimensionalEnergySiphonerMK2TileEntity)
+      return ModUtil.calcRedstoneFromEnergyStorage(((DimensionalEnergySiphonerMK2TileEntity) tileEntity).energy);
     return super.getComparatorInputOverride(blockState, worldIn, pos);
   }
 

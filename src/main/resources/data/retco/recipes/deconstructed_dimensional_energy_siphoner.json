@@ -6,6 +6,7 @@
 		}
 	],
 	"result": {
-		"item": "retco:deconstructed_dimensional_energy_siphoner"
+    "item": "retco:deconstructed_dimensional_energy_siphoner",
+    "count": 2
 	}
 }

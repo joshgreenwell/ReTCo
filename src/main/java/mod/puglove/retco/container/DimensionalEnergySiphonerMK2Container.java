@@ -48,16 +48,12 @@ public class DimensionalEnergySiphonerMK2Container extends Container {
    */
   public DimensionalEnergySiphonerMK2Container(final int windowId, final PlayerInventory playerInventory,
       final DimensionalEnergySiphonerMK2TileEntity tileEntity) {
-    super(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER.get(), windowId);
+    super(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK2.get(), windowId);
     this.tileEntity = tileEntity;
     this.canInteractWithCallable = IWorldPosCallable.of(tileEntity.getWorld(), tileEntity.getPos());
 
     // Add all the slots for the tileEntity's inventory and the playerInventory to
     // this container
-
-    // Tile inventory slot(s)
-    this.addSlot(new SlotItemHandler(tileEntity.inventory, DimensionalEnergySiphonerMK2TileEntity.FUEL_SLOT, 80, 35));
-
     final int playerInventoryStartX = 8;
     final int playerInventoryStartY = 84;
     final int slotSizePlus2 = 18; // slots are 16x16, plus 2 (for spacing/borders) is 18x18
@@ -129,7 +125,7 @@ public class DimensionalEnergySiphonerMK2Container extends Container {
 
   @Override
   public boolean canInteractWith(@Nonnull final PlayerEntity player) {
-    return isWithinUsableDistance(canInteractWithCallable, player, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER.get());
+    return isWithinUsableDistance(canInteractWithCallable, player, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER_MK2.get());
   }
 
 }
