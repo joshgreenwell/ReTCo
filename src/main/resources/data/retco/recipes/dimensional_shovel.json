@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" # ",
+		" | ",
+		" | "
+	],
+	"key": {
+		"#": {
+			"item": "retco:dimensional_ingot"
+    },
+    "|": {
+			"item": "minecraft:stick"
+    }
+	},
+	"result": {
+		"item": "retco:dimensional_shovel"
+	}
+}
