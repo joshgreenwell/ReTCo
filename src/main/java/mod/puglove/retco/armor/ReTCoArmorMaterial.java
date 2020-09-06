@@ -18,6 +18,10 @@ public enum ReTCoArmorMaterial implements IArmorMaterial {
   
   DIMENSIONAL(ReTCo.MODID + ":dimensional", 45, new int[] { 4, 7, 8, 4 }, 22, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 2.0f, () -> {
     return Ingredient.fromItems(ModItems.DIMENSIONAL_INGOT.get());
+  }),
+
+  ENHANCED_MATTER(ReTCo.MODID + ":enhanced_matter", 55, new int[] { 6, 9, 10, 6 }, 45, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 3.0f, () -> {
+    return Ingredient.fromItems(ModItems.DIMENSIONAL_INGOT.get());
   });
 
   private static final int[] MAX_DAMAGE_ARRAY = new int[] { 11, 16, 15, 13 };

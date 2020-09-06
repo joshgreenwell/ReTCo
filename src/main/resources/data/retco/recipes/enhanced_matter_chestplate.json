@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"#&#",
+		"###",
+		"###"
+	],
+	"key": {
+    "&": {
+      "item": "retco:forming_tool"
+    },
+		"#": {
+			"item": "retco:enhanced_dimensional_ingot"
+    }
+	},
+	"result": {
+		"item": "retco:enhanced_matter_chestplate"
+	}
+}
