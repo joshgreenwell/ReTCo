@@ -1,7 +1,9 @@
 package mod.puglove.retco.registries;
 
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.armor.EnhancedMatterChestplate;
 import mod.puglove.retco.armor.ReTCoArmorMaterial;
+import mod.puglove.retco.items.Grub;
 import mod.puglove.retco.tools.ReTCoItemTier;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.ArmorItem;
@@ -29,6 +31,9 @@ public class ModItems {
   public static final RegistryObject<Item> DECONSTRUCTED_DIMENSIONAL_ENERGY_SIPHONER = ITEMS.register(
       "deconstructed_dimensional_energy_siphoner",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+  public static final RegistryObject<Item> DIMENSIONAL_ESSENCE = ITEMS.register(
+      "dimensional_essence",
+      () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
 
   // Custom tools
   public static final RegistryObject<Item> FORMING_TOOL = ITEMS.register("forming_tool",
@@ -52,8 +57,7 @@ public class ModItems {
           new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
 
   public static final RegistryObject<HoeItem> DIMENSIONAL_HOE = ITEMS.register("dimensional_hoe",
-      () -> new HoeItem(ReTCoItemTier.DIMENSIONAL, -2.6f,
-          new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+      () -> new HoeItem(ReTCoItemTier.DIMENSIONAL, -2.6f, new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
 
   // Armor
   public static final RegistryObject<ArmorItem> DIMENSIONAL_HELMET = ITEMS.register("dimensional_helmet",
@@ -71,4 +75,11 @@ public class ModItems {
   public static final RegistryObject<ArmorItem> DIMENSIONAL_BOOTS = ITEMS.register("dimensional_boots",
       () -> new ArmorItem(ReTCoArmorMaterial.DIMENSIONAL, EquipmentSlotType.FEET,
           new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  public static final RegistryObject<EnhancedMatterChestplate> ENHANCED_MATTER_CHESTPLATE = ITEMS
+      .register("enhanced_matter_chestplate", () -> new EnhancedMatterChestplate(ReTCoArmorMaterial.ENHANCED_MATTER,
+          EquipmentSlotType.CHEST, new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  // Food
+  public static final RegistryObject<Grub> GRUB = ITEMS.register("grub", Grub::new);
 }

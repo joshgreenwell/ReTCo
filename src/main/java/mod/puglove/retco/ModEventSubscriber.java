@@ -3,11 +3,15 @@ package mod.puglove.retco;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import mod.puglove.retco.armor.EnhancedMatterChestplate;
 import mod.puglove.retco.registries.ModBlocks;
 import mod.puglove.retco.registries.ModItemGroups;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -37,6 +41,17 @@ public final class ModEventSubscriber {
 					registry.register(blockItem);
         });
     LOGGER.debug("Registered BlockItems");
+  }
+
+  @SubscribeEvent
+  public void onPlayerEvent(PlayerEvent event) {
+    LOGGER.warn("---");
+    // if(event.phase == TickEvent.Phase.START) {
+    //   LOGGER.warn("Tick Start");
+    //   ItemStack armorItem = event.player.inventory.armorItemInSlot(1);
+    //   LOGGER.warn(armorItem.getItem().getRegistryName());
+    //   event.player.abilities.allowFlying = armorItem.getItem() instanceof EnhancedMatterChestplate;
+    // }
   }
   
 }

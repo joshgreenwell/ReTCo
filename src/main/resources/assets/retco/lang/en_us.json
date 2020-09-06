@@ -8,7 +8,8 @@
   "item.retco.dimensional_residue": "Dimensional Residue",
   "item.retco.dimensional_ingot": "Dimensional Ingot",
   "item.retco.enhanced_dimensional_ingot": "Enhanced Dimensional Ingot",
-  "item.retco.deconstructed_dimensional_energy_siphon": "Deconstructed Dimensional Energy Siphon",
+  "item.retco.deconstructed_dimensional_energy_siphoner": "Deconstructed Dimensional Energy Siphoner",
+  "item.retco.dimensional_essence": "Dimensional Essence",
 
   "item.retco.forming_tool": "Forming Tool",
 
@@ -22,6 +23,9 @@
   "item.retco.dimensional_chestplate": "Dimensional Chestplate",
   "item.retco.dimensional_leggings": "Dimensional Leggings",
   "item.retco.dimensional_boots": "Dimensional Boots",
+  "item.retco.enhanced_matter_chestplate": "Enhanced Matter Chestplate",
+
+  "item.retco.grub": "Grub",
   
   "itemGroup.retco": "ReTCo",
   
