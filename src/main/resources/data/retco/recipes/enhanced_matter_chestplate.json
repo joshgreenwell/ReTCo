@@ -2,7 +2,7 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"#&#",
-		"###",
+		"#@#",
 		"###"
 	],
 	"key": {
@@ -11,6 +11,9 @@
     },
 		"#": {
 			"item": "retco:enhanced_dimensional_ingot"
+    },
+    "@": {
+      "item": "retco:flight_control_unit"
     }
 	},
 	"result": {

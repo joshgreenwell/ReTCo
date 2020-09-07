@@ -24,15 +24,20 @@ public class ModItems {
   // Ingredients
   public static final RegistryObject<Item> DIMENSIONAL_RESIDUE = ITEMS.register("dimensional_residue",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
   public static final RegistryObject<Item> DIMENSIONAL_INGOT = ITEMS.register("dimensional_ingot",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
   public static final RegistryObject<Item> ENHANCED_DIMENSIONAL_INGOT = ITEMS.register("enhanced_dimensional_ingot",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
-  public static final RegistryObject<Item> DECONSTRUCTED_DIMENSIONAL_ENERGY_SIPHONER = ITEMS.register(
-      "deconstructed_dimensional_energy_siphoner",
+
+  public static final RegistryObject<Item> DIMENSIONAL_ESSENCE = ITEMS.register("dimensional_essence",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
-  public static final RegistryObject<Item> DIMENSIONAL_ESSENCE = ITEMS.register(
-      "dimensional_essence",
+
+  public static final RegistryObject<Item> FLIGHT_CONTROL_UNIT = ITEMS.register("flight_control_unit",
+      () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  public static final RegistryObject<Item> FLIGHT_CIRCUIT = ITEMS.register("flight_circuit",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
 
   // Custom tools

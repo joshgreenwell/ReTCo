@@ -7,7 +7,6 @@ import com.google.common.base.Supplier;
 import mod.puglove.retco.ReTCo;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 
 public class ModItemGroups {
 

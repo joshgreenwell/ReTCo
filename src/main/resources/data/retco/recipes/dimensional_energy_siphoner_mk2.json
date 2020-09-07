@@ -7,7 +7,7 @@
 	],
 	"key": {
 		"#": {
-			"item": "retco:deconstructed_dimensional_energy_siphoner"
+			"item": "retco:dimensional_energy_siphoner"
     },
     "$": {
 			"item": "retco:enhanced_dimensional_ingot"

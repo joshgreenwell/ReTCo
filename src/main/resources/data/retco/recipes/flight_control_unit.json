@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"   ",
+		"$$$",
+		"#@#"
+	],
+	"key": {
+    "$": {
+      "item": "retco:flight_circuit"
+    },
+    "@": {
+      "item": "retco:dimensional_block"
+    },
+		"#": {
+			"item": "minecraft:iron_ingot"
+    }
+	},
+	"result": {
+		"item": "retco:flight_control_unit"
+	}
+}
