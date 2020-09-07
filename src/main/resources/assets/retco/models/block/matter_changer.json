@@ -1,0 +1,6 @@
+{
+	"parent": "block/furnace",
+	"textures": {
+		"front": "retco:block/dimensional_block"
+	}
+}

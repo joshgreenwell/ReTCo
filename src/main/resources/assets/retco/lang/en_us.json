@@ -32,5 +32,6 @@
   "itemGroup.retco": "ReTCo",
   
   "gui.retco.energy": "Energy %s",
-  "gui.retco.matter": "Matter: %s"
+  "gui.retco.matter": "Matter: %s",
+  "gui.retco.smeltTimeProgress": "Smelt time %s/%s"
 }

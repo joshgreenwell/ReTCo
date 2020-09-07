@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north":	{ "model": "retco:block/matter_changer" },
+		"facing=south":	{ "model": "retco:block/matter_changer", "y": 180 },
+		"facing=west":	{ "model": "retco:block/matter_changer", "y": 270 },
+		"facing=east":	{ "model": "retco:block/matter_changer", "y": 90 }
+	}
+}

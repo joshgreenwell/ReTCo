@@ -4,6 +4,7 @@ import mod.puglove.retco.ReTCo;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK2TileEntity;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK3TileEntity;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
+import mod.puglove.retco.tileentity.MatterChangerTileEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -39,5 +40,11 @@ public final class ModTileEntityTypes {
       .register("dimensional_energy_siphoner_mk3",
           () -> TileEntityType.Builder
               .create(DimensionalEnergySiphonerMK3TileEntity::new, ModBlocks.DIMENSIONAL_ENERGY_SIPHONER_MK3.get())
+              .build(null));
+
+  public static final RegistryObject<TileEntityType<MatterChangerTileEntity>> MATTER_CHANGER = TILE_ENTITY_TYPES
+      .register("matter_changer",
+          () -> TileEntityType.Builder
+              .create(MatterChangerTileEntity::new, ModBlocks.MATTER_CHANGER.get())
               .build(null));
 }

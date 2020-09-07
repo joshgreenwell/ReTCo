@@ -13,6 +13,7 @@ import mod.puglove.retco.ReTCo;
 import mod.puglove.retco.client.gui.DimensionalEnergySiphonerMK2Screen;
 import mod.puglove.retco.client.gui.DimensionalEnergySiphonerMK3Screen;
 import mod.puglove.retco.client.gui.DimensionalEnergySiphonerScreen;
+import mod.puglove.retco.client.gui.MatterChangerScreen;
 import mod.puglove.retco.registries.ModContainerTypes;
 
 /**
@@ -48,6 +49,7 @@ public final class ClientModEventSubscriber {
       ScreenManager.registerFactory(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER.get(), DimensionalEnergySiphonerScreen::new);
       ScreenManager.registerFactory(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK2.get(), DimensionalEnergySiphonerMK2Screen::new);
       ScreenManager.registerFactory(ModContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK3.get(), DimensionalEnergySiphonerMK3Screen::new);
+      ScreenManager.registerFactory(ModContainerTypes.MATTER_CHANGER.get(), MatterChangerScreen::new);
 			logger.debug("Registered ContainerType Screens");
 		});
 
