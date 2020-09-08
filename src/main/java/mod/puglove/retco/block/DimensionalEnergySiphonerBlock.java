@@ -2,8 +2,10 @@ package mod.puglove.retco.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
@@ -13,17 +15,24 @@ import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.api.distmarker.Dist;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 import mod.puglove.retco.ModUtil;
+import mod.puglove.retco.config.ReTCoConfig;
 import mod.puglove.retco.registries.ModTileEntityTypes;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 public class DimensionalEnergySiphonerBlock extends Block {
@@ -35,6 +44,14 @@ public class DimensionalEnergySiphonerBlock extends Block {
     super(properties);
   }
 
+  @OnlyIn(Dist.CLIENT)
+  @Override
+  public void addInformation(ItemStack stack, IBlockReader worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+    tooltip.add(new TranslationTextComponent("message:dimensional_energy_siphoner",
+        Integer.toString(ReTCoConfig.machines.dimensionalEnergySiphonerGenerate.get()))
+            .applyTextStyle(TextFormatting.GRAY));
+  }
+
   @Override
   public boolean hasTileEntity(final BlockState state) {
     return true;
@@ -43,7 +60,6 @@ public class DimensionalEnergySiphonerBlock extends Block {
   @Nullable
   @Override
   public TileEntity createTileEntity(final BlockState state, final IBlockReader world) {
-    // Always use TileEntityType#create to allow registry overrides to work.
     return ModTileEntityTypes.DIMENSIONAL_ENERGY_SIPHONER.get().create();
   }
 

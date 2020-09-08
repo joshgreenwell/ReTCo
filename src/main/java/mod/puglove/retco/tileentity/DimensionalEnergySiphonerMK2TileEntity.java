@@ -37,6 +37,7 @@ import org.apache.logging.log4j.Logger;
 
 import mod.puglove.retco.ModUtil;
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.config.ReTCoConfig;
 import mod.puglove.retco.container.DimensionalEnergySiphonerMK2Container;
 import mod.puglove.retco.energy.SettableEnergyStorage;
 import mod.puglove.retco.registries.ModBlocks;
@@ -49,7 +50,10 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
 
   private static final String ENERGY_TAG = "energy";
 
-  public final SettableEnergyStorage energy = new SettableEnergyStorage(1000000, 10000, 10000);
+  public final SettableEnergyStorage energy = new SettableEnergyStorage(
+      ReTCoConfig.machines.dimensionalEnergySiphonerMK2Capacity.get(),
+      ReTCoConfig.machines.dimensionalEnergySiphonerMK2MaxInput.get(),
+      ReTCoConfig.machines.dimensionalEnergySiphonerMK2MaxOutput.get());
 
   // Store the capability lazy optionals as fields to keep the amount of objects
   // we use to a minimum
@@ -70,9 +74,9 @@ public class DimensionalEnergySiphonerMK2TileEntity extends TileEntity
     final BlockPos pos = this.pos;
     final SettableEnergyStorage energy = this.energy;
 
-    energy.receiveEnergy(100, false);
+    energy.receiveEnergy(ReTCoConfig.machines.dimensionalEnergySiphonerMK2Generate.get(), false);
 
-    final int transferAmountPerTick = 10000;
+    final int transferAmountPerTick = ReTCoConfig.machines.dimensionalEnergySiphonerMK2TransferRate.get();
     for (Direction direction : ModUtil.DIRECTIONS) {
       final TileEntity te = world.getTileEntity(pos.offset(direction));
       if (te == null) {

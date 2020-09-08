@@ -29,6 +29,7 @@ import org.apache.logging.log4j.Logger;
 
 import mod.puglove.retco.ModUtil;
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.config.ReTCoConfig;
 import mod.puglove.retco.container.DimensionalEnergySiphonerContainer;
 import mod.puglove.retco.energy.SettableEnergyStorage;
 import mod.puglove.retco.registries.ModBlocks;
@@ -41,10 +42,13 @@ public class DimensionalEnergySiphonerTileEntity extends TileEntity
 
   private static final String ENERGY_TAG = "energy";
 
-  public final SettableEnergyStorage energy = new SettableEnergyStorage(100000, 1000, 1000);
+  private final int energyGenerated = ReTCoConfig.machines.dimensionalEnergySiphonerGenerate.get();
 
-  // Store the capability lazy optionals as fields to keep the amount of objects
-  // we use to a minimum
+  public final SettableEnergyStorage energy = new SettableEnergyStorage(
+      ReTCoConfig.machines.dimensionalEnergySiphonerCapacity.get(),
+      ReTCoConfig.machines.dimensionalEnergySiphonerMaxInput.get(),
+      ReTCoConfig.machines.dimensionalEnergySiphonerMaxOutput.get());
+
   private final LazyOptional<EnergyStorage> energyCapabilityExternal = LazyOptional.of(() -> this.energy);
   private int lastEnergy = -1;
 
@@ -62,9 +66,9 @@ public class DimensionalEnergySiphonerTileEntity extends TileEntity
     final BlockPos pos = this.pos;
     final SettableEnergyStorage energy = this.energy;
 
-    energy.receiveEnergy(20, false);
+    energy.receiveEnergy(energyGenerated, false);
 
-    final int transferAmountPerTick = 1000;
+    final int transferAmountPerTick = ReTCoConfig.machines.dimensionalEnergySiphonerTransferRate.get();
     for (Direction direction : ModUtil.DIRECTIONS) {
       final TileEntity te = world.getTileEntity(pos.offset(direction));
       if (te == null) {
@@ -72,7 +76,6 @@ public class DimensionalEnergySiphonerTileEntity extends TileEntity
       }
       te.getCapability(CapabilityEnergy.ENERGY, direction).ifPresent(otherTileEnergy -> {
         if (!otherTileEnergy.canReceive()) {
-          // Optimisation: Skip this tile if it can't receive
           return;
         }
         energy.extractEnergy(otherTileEnergy.receiveEnergy(
@@ -80,23 +83,10 @@ public class DimensionalEnergySiphonerTileEntity extends TileEntity
       });
     }
 
-    // If the energy has changed.
-    if (lastEnergy != energy.getEnergyStored())
-
-    {
-
-      // "markDirty" tells vanilla that the chunk containing the tile entity has
-      // changed and means the game will save the chunk to disk later.
+    if (lastEnergy != energy.getEnergyStored()) {
       this.markDirty();
-
-      // Notify clients of a block update.
-      // This will result in the packet from getUpdatePacket being sent to the client
-      // and our energy being synced.
       final BlockState blockState = this.getBlockState();
-      // Flag 2: Send the change to clients
       world.notifyBlockUpdate(pos, blockState, blockState, 2);
-
-      // Update the last synced energy to the current energy
       lastEnergy = energy.getEnergyStored();
     }
 

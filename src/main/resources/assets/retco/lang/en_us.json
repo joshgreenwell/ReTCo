@@ -33,5 +33,9 @@
   
   "gui.retco.energy": "Energy %s",
   "gui.retco.matter": "Matter: %s",
-  "gui.retco.smeltTimeProgress": "Smelt time %s/%s"
+  "gui.retco.smeltTimeProgress": "Smelt time %s/%s",
+
+  "message:dimensional_energy_siphoner": "Crudely siphons energy from another dimension at %s FE/t",
+  "message:dimensional_energy_siphoner_mk2": "Siphons energy from another dimension with little efficiency at %s FE/t",
+  "message:dimensional_energy_siphoner_mk3": "Siphons energy from another dimension with moderate efficiency at %s FE/t"
 }
