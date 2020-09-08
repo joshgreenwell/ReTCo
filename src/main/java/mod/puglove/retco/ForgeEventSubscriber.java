@@ -16,11 +16,13 @@ public final class ForgeEventSubscriber {
 
   @SubscribeEvent
   public static void onPlayerEvent(PlayerEvent event) {
-    ItemStack armorItem = event.getPlayer().inventory.armorItemInSlot(2);
-    boolean canFly = armorItem.getItem() instanceof EnhancedMatterChestplate || event.getPlayer().isCreative();
-    event.getPlayer().abilities.allowFlying = canFly;
-    if(!canFly) {
-      event.getPlayer().abilities.isFlying = false;
+    if (event.getPlayer() != null) {
+      ItemStack armorItem = event.getPlayer().inventory.armorItemInSlot(2);
+      boolean canFly = armorItem.getItem() instanceof EnhancedMatterChestplate || event.getPlayer().isCreative();
+      event.getPlayer().abilities.allowFlying = canFly;
+      if(!canFly) {
+        event.getPlayer().abilities.isFlying = false;
+      }
     }
   }
 
