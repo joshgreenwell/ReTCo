@@ -1,0 +1,19 @@
+{
+  "name": "Dimensional Ingots",
+  "icon": "retco:dimensional_ingot",
+  "category": "retco:getting_started",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Find yourself a crafting bench and try forming the residue over an iron ingot. The residue seems to bind well with iron creating a sturdy material."
+    },
+    {
+      "type": "text",
+      "text": "Ok one more step to further refine the matter. Now that you have a dimensional ingot, let's see if we can purify it and draw out some of its dimensional energy. To do this we will want something conductive."
+    },
+    {
+      "type": "text",
+      "text": "A couple nuggets of gold and a redstone in a crafting bench with a dimensional ingot should do the trick."
+    }
+  ]
+}

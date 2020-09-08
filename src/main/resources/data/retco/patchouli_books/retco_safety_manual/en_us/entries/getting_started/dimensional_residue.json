@@ -1,0 +1,11 @@
+{
+  "name": "Dimensional Residue",
+  "icon": "retco:dimensional_residue",
+  "category": "retco:getting_started",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The first step to refining dimensional residue is to find a substance that it can bind with. Although it has the look of a hardened crystal, you'll notice that it feels almost malleable in your hands."
+    }
+  ]
+}
