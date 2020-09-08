@@ -14,14 +14,17 @@ public final class WorldConfig extends BaseReTCoConfig {
 
   WorldConfig() {
     ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-    builder.comment("World generation settings for Mekanism. This config is not synced from server to client")
+    builder.comment("World generation settings for ReTCo. This config is not synced from server to client")
         .push("world_generation");
-    enableRegeneration = CachedBooleanValue.wrap(this, builder.comment("Allows chunks to retrogen Mekanism ore blocks.")
+
+    enableRegeneration = CachedBooleanValue.wrap(this, builder.comment("Allows chunks to retrogen ReTCo ore blocks.")
         .worldRestart().define("enableRegeneration", false));
     userGenVersion = CachedIntValue.wrap(this,
-        builder.comment("Change this value to cause Mekanism to regen its ore in all loaded chunks.")
+        builder.comment("Change this value to cause ReTCo to regen its ore in all loaded chunks.")
             .defineInRange("userWorldGenVersion", 0, 0, Integer.MAX_VALUE));
+
     dimensional_residue = new OreConfig(this, builder, "dimensional_residue", true, 2, 3, 0, 0, 30);
+
     builder.pop();
     configSpec = builder.build();
   }
