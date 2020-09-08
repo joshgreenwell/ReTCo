@@ -31,12 +31,12 @@ public class MatterChangerScreen extends ContainerScreen<MatterChangerContainer>
     int relMouseX = mouseX - this.guiLeft;
     int relMouseY = mouseY - this.guiTop;
     final MatterChangerTileEntity tileEntity = this.container.tileEntity;
-    boolean energyBarHovered = relMouseX > 151 && relMouseX < 166 && relMouseY > 10 && relMouseY < 76;
-    if (energyBarHovered) {
-      String tooltip = new TranslationTextComponent("gui." + ReTCo.MODID + ".energy",
-          tileEntity.energy.getEnergyStored()).getFormattedText();
-      this.renderTooltip(tooltip, mouseX, mouseY);
-    }
+    // boolean energyBarHovered = relMouseX > 151 && relMouseX < 166 && relMouseY > 10 && relMouseY < 76;
+    // if (energyBarHovered) {
+    //   String tooltip = new TranslationTextComponent("gui." + ReTCo.MODID + ".energy",
+    //       tileEntity.energy.getEnergyStored()).getFormattedText();
+    //   this.renderTooltip(tooltip, mouseX, mouseY);
+    // }
     boolean arrowHovered = relMouseX > 79 && relMouseX < 104 && relMouseY > 34 && relMouseY < 50;
     if (arrowHovered && tileEntity.maxSmeltTime > 0) {
       String tooltip = new TranslationTextComponent("gui." + ReTCo.MODID + ".smeltTimeProgress",
@@ -53,6 +53,11 @@ public class MatterChangerScreen extends ContainerScreen<MatterChangerContainer>
     this.font.drawString(s, (float) (this.xSize / 2 - this.font.getStringWidth(s) / 2), 6.0F, 0x404040);
     this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float) (this.ySize - 96 + 2),
         0x404040);
+
+    final MatterChangerTileEntity tileEntity = container.tileEntity;
+    String m = new TranslationTextComponent("gui." + ReTCo.MODID + ".matter", tileEntity.getMatterStored()).getFormattedText();
+    this.font.drawString(m, (float) (this.xSize / 2 - this.font.getStringWidth(m) / 2), (float) (this.ySize - 105 + 2),
+      0x404040);
   }
 
   @Override
@@ -69,29 +74,24 @@ public class MatterChangerScreen extends ContainerScreen<MatterChangerContainer>
     this.blit(startX, startY, 0, 0, this.xSize, this.ySize);
 
     final MatterChangerTileEntity tileEntity = container.tileEntity;
-    if (tileEntity.energy.getEnergyStored() > 0) { // Draw energy bar
-      int energyProgress = getEnergyProgressScaled();
-      this.blit(startX + 152, startY + 10 + 65 - energyProgress, 176, 16, 14, energyProgress);
-    }
+    // if (tileEntity.energy.getEnergyStored() > 0) { // Draw energy bar
+    //   int energyProgress = getEnergyProgressScaled();
+    //   this.blit(startX + 152, startY + 10 + 65 - energyProgress, 176, 16, 14, energyProgress);
+    // }
     if (tileEntity.smeltTimeLeft > 0) {
       // Draw progress arrow
       int arrowWidth = getSmeltTimeScaled();
       this.blit(startX + 79, startY + 34, 176, 0, arrowWidth, 16);
     }
-
-    String m = new TranslationTextComponent("gui." + ReTCo.MODID + ".matter", tileEntity.getMatterStored()).getFormattedText();
-    this.font.drawString(m, (float) (this.xSize / 2 - this.font.getStringWidth(m) / 2), (float) (this.ySize - 105 + 2),
-      0x404040);
-
   }
 
-  private int getEnergyProgressScaled() {
-    final MatterChangerTileEntity tileEntity = this.container.tileEntity;
-    final EnergyStorage energy = tileEntity.energy;
-    final int energyStored = energy.getEnergyStored();
-    final int maxEnergyStored = energy.getMaxEnergyStored();
-    return Math.round((float) energyStored / maxEnergyStored * 65); // 65 is the height of the arrow
-  }
+  // private int getEnergyProgressScaled() {
+  //   final MatterChangerTileEntity tileEntity = this.container.tileEntity;
+  //   // final EnergyStorage energy = tileEntity.energy;
+  //   final int energyStored = energy.getEnergyStored();
+  //   final int maxEnergyStored = energy.getMaxEnergyStored();
+  //   return Math.round((float) energyStored / maxEnergyStored * 65); // 65 is the height of the arrow
+  // }
 
   private int getSmeltTimeScaled() {
     final MatterChangerTileEntity tileEntity = this.container.tileEntity;

@@ -48,8 +48,8 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 
 	private static final String INVENTORY_TAG = "inventory";
 	private static final String SMELT_TIME_LEFT_TAG = "smeltTimeLeft";
-	private static final String MAX_SMELT_TIME_TAG = "maxSmeltTime";
-	private static final String ENERGY_TAG = "energy";
+  private static final String MAX_SMELT_TIME_TAG = "maxSmeltTime";
+  private static final String MATTER_COLLECTED_TAG = "matterCollected";
 	public final ItemStackHandler inventory = new ItemStackHandler(2) {
 		@Override
 		public boolean isItemValid(final int slot, @Nonnull final ItemStack stack) {
@@ -66,13 +66,9 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 		@Override
 		protected void onContentsChanged(final int slot) {
 			super.onContentsChanged(slot);
-			// Mark the tile entity as having changed whenever its inventory changes.
-			// "markDirty" tells vanilla that the chunk containing the tile entity has
-			// changed and means the game will save the chunk to disk later.
 			MatterChangerTileEntity.this.markDirty();
 		}
 	};
-	public final SettableEnergyStorage energy = new SettableEnergyStorage(100_000);
 
 	// Store the capability lazy optionals as fields to keep the amount of objects we use to a minimum
 	private final LazyOptional<ItemStackHandler> inventoryCapabilityExternal = LazyOptional.of(() -> this.inventory);
@@ -80,11 +76,9 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 	private final LazyOptional<IItemHandlerModifiable> inventoryCapabilityExternalUpAndSides = LazyOptional.of(() -> new RangedWrapper(this.inventory, INPUT_SLOT, INPUT_SLOT + 1));
 	// Machines (hoppers, pipes) connected to this furnace's bottom can only insert/extract items from the output slot
 	private final LazyOptional<IItemHandlerModifiable> inventoryCapabilityExternalDown = LazyOptional.of(() -> new RangedWrapper(this.inventory, OUTPUT_SLOT, OUTPUT_SLOT + 1));
-	private final LazyOptional<EnergyStorage> energyCapabilityExternal = LazyOptional.of(() -> this.energy);
 
 	public short smeltTimeLeft = -1;
 	public short maxSmeltTime = -1;
-  private int lastEnergy = -1;
   private int lastMatterCollected = 0;
   private int matterCollected = 0;
 
@@ -166,22 +160,10 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
       }
     }
 
-		// If the energy has changed.
-		if (lastEnergy != energy.getEnergyStored() || lastMatterCollected != this.getMatterStored()) {
-
-			// "markDirty" tells vanilla that the chunk containing the tile entity has
-			// changed and means the game will save the chunk to disk later.
+		if (lastMatterCollected != this.getMatterStored()) {
 			this.markDirty();
-
-			// Notify clients of a block update.
-			// This will result in the packet from getUpdatePacket being sent to the client
-			// and our energy being synced.
 			final BlockState blockState = this.getBlockState();
-			// Flag 2: Send the change to clients
 			world.notifyBlockUpdate(pos, blockState, blockState, 2);
-
-			// Update the last synced energy to the current energy
-      lastEnergy = energy.getEnergyStored();
       lastMatterCollected = this.getMatterStored();
 		}
 
@@ -223,17 +205,15 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 					return inventoryCapabilityExternalUpAndSides.cast();
 			}
 		}
-		if (cap == CapabilityEnergy.ENERGY)
-			return energyCapabilityExternal.cast();
 		return super.getCapability(cap, side);
-	}
-
-	/**
+  }
+  
+  /**
 	 * Handle a packet created in {@link #getUpdatePacket()}
 	 */
 	@Override
 	public void onDataPacket(final NetworkManager net, final SUpdateTileEntityPacket pkt) {
-		this.energy.setEnergy(pkt.getNbtCompound().getInt(ENERGY_TAG));
+		this.matterCollected = pkt.getNbtCompound().getInt(MATTER_COLLECTED_TAG);
 	}
 
 	@Override
@@ -242,7 +222,7 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 		// We set this in onLoad instead of the constructor so that TileEntities
 		// constructed from NBT (saved tile entities) have this set to the proper value
 		if (world != null && !world.isRemote)
-			lastEnergy = energy.getEnergyStored();
+			lastMatterCollected = this.getMatterStored();
 	}
 
 	/**
@@ -254,7 +234,7 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 		this.inventory.deserializeNBT(compound.getCompound(INVENTORY_TAG));
 		this.smeltTimeLeft = compound.getShort(SMELT_TIME_LEFT_TAG);
 		this.maxSmeltTime = compound.getShort(MAX_SMELT_TIME_TAG);
-		this.energy.setEnergy(compound.getInt(ENERGY_TAG));
+		this.matterCollected = compound.getInt(MATTER_COLLECTED_TAG);
 	}
 
 	/**
@@ -267,7 +247,7 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 		compound.put(INVENTORY_TAG, this.inventory.serializeNBT());
 		compound.putShort(SMELT_TIME_LEFT_TAG, this.smeltTimeLeft);
 		compound.putShort(MAX_SMELT_TIME_TAG, this.maxSmeltTime);
-		compound.putInt(ENERGY_TAG, this.energy.getEnergyStored());
+		compound.putInt(MATTER_COLLECTED_TAG, this.getMatterStored());
 		return compound;
 	}
 
@@ -278,7 +258,7 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 	@Nullable
 	public SUpdateTileEntityPacket getUpdatePacket() {
 		final CompoundNBT tag = new CompoundNBT();
-		tag.putInt(ENERGY_TAG, this.energy.getEnergyStored());
+		tag.putInt(MATTER_COLLECTED_TAG, this.getMatterStored());
 		// We pass 0 for tileEntityTypeIn because we have a modded TE. See ClientPlayNetHandler#handleUpdateTileEntity(SUpdateTileEntityPacket)
 		return new SUpdateTileEntityPacket(this.pos, 0, tag);
 	}
@@ -304,7 +284,6 @@ public class MatterChangerTileEntity extends TileEntity implements ITickableTile
 		// We need to invalidate our capability references so that any cached references (by other mods) don't
 		// continue to reference our capabilities and try to use them and/or prevent them from being garbage collected
 		inventoryCapabilityExternal.invalidate();
-		energyCapabilityExternal.invalidate();
 	}
 
 	@Nonnull
