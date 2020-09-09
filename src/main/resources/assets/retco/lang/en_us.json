@@ -5,6 +5,7 @@
   "block.retco.dimensional_residue_ore": "Dimensional Residue Ore",
   "block.retco.dimensional_block": "Dimensional Block",
   "block.retco.matter_changer": "Matter Changer",
+  "block.retco.compressor": "Compressor",
 
   "item.retco.dimensional_residue": "Dimensional Residue",
   "item.retco.dimensional_ingot": "Dimensional Ingot",
@@ -12,6 +13,9 @@
   "item.retco.dimensional_essence": "Dimensional Essence",
   "item.retco.flight_circuit": "Flight Circuit",
   "item.retco.flight_control_unit": "Flight Control Unit",
+  "item.retco.energy_core": "Energy Core",
+  "item.retco.iron_plate": "Iron Plate",
+  "item.retco.gold_plate": "Gold Plate",
 
   "item.retco.forming_tool": "Forming Tool",
 

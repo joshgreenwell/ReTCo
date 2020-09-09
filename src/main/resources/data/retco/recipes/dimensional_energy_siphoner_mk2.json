@@ -2,8 +2,8 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"@@@",
-		"$#$",
-		"^^^"
+		"^$^",
+		"^#^"
 	],
 	"key": {
 		"#": {
@@ -16,7 +16,7 @@
       "item": "minecraft:glass"
     },
     "^": {
-      "item": "minecraft:redstone"
+      "item": "retco:iron_plate"
     }
 	},
 	"result": {

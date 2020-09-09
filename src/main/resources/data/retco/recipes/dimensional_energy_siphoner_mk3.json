@@ -2,18 +2,18 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		"^^^",
-		"$@$",
-		"#$#"
+		"#@#",
+		"$$$"
 	],
 	"key": {
 		"#": {
 			"item": "retco:dimensional_energy_siphoner_mk2"
     },
     "$": {
-			"item": "minecraft:emerald"
+			"item": "retco:iron_plate"
     },
     "@": {
-      "item": "minecraft:diamond_block"
+      "item": "retco:energy_core"
     },
     "^": {
       "item": "minecraft:glass"

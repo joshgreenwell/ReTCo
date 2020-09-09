@@ -40,6 +40,15 @@ public class ModItems {
   public static final RegistryObject<Item> FLIGHT_CIRCUIT = ITEMS.register("flight_circuit",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
 
+  public static final RegistryObject<Item> ENERGY_CORE = ITEMS.register("energy_core",
+      () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  public static final RegistryObject<Item> IRON_PLATE = ITEMS.register("iron_plate",
+      () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
+  public static final RegistryObject<Item> GOLD_PLATE = ITEMS.register("gold_plate",
+      () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
+
   // Custom tools
   public static final RegistryObject<Item> FORMING_TOOL = ITEMS.register("forming_tool",
       () -> new Item(new Item.Properties().group(ModItemGroups.MOD_ITEM_GROUP)));
