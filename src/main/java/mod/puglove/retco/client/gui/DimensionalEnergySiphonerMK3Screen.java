@@ -65,8 +65,8 @@ public class DimensionalEnergySiphonerMK3Screen extends ContainerScreen<Dimensio
     final SettableEnergyStorage energy = tileEntity.energy;
     final int energyStored = energy.getEnergyStored();
     if (energyStored > 0) { // Draw energy bar
-      final int energyProgress = Math.round((float) energyStored / energy.getMaxEnergyStored() * 65);
-      this.blit(startX + 81, startY + 18 + 52 - energyProgress, 176, 14, 14, energyProgress);
+      final int energyProgress = Math.round((float) energyStored / energy.getMaxEnergyStored() * 52);
+      this.blit(startX + 81, startY + 19 + 52 - energyProgress, 176, 0, 14, energyProgress);
     }
   }
 }
