@@ -11,7 +11,7 @@ public class Grub extends Item {
       .group(ModItemGroups.MOD_ITEM_GROUP)
       .food(new Food.Builder()
         .hunger(10)
-        .saturation(1.0f)
+        .saturation(0.8f)
         .build()
       )
     );
