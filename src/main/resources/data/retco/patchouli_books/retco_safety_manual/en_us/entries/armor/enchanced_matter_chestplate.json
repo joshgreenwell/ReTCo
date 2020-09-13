@@ -1,0 +1,22 @@
+{
+  "name": "Enhanced Matter Chestplate",
+  "icon": "retco:enhanced_matter_chestplate",
+  "category": "retco:armor",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Some of our scientist were able to harness some attributes of the dimensional material and in doing so were able to manipulate those attribute to allow flight! $(br2)This process requires a few extra steps, but is well worth it."
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:flight_circuit",
+      "recipe2": "retco:flight_control_unit"
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:forming_tool",
+      "recipe2": "retco:enhanced_matter_chestplate"
+    }
+  ]
+}

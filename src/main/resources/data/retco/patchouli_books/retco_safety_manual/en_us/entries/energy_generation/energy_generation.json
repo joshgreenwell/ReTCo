@@ -1,0 +1,23 @@
+{
+  "name": "Dimensional Energy Siphoner",
+  "icon": "retco:dimensional_energy_siphoner",
+  "category": "retco:energy_generation",
+  "sortnum": 7,
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "retco:iron_plate_from_crafting",
+      "recipe2": "retco:gold_plate_from_crafting"
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:energy_core",
+      "recipe2": "retco:dimensional_energy_siphoner"
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:dimensional_energy_siphoner_mk2",
+      "recipe2": "retco:dimensional_energy_siphoner_mk3"
+    }
+  ]
+}

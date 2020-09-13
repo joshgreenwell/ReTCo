@@ -1,0 +1,14 @@
+{
+  "name": "Grub",
+  "icon": "retco:grub",
+  "category": "retco:food",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "crafting",
+      "title": "Grub",
+      "text": "Although there are many food options available, we here, like efficiency and that's why we offer you Grub!",
+      "recipe": "retco:grub"
+    }
+  ]
+}

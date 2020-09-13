@@ -2,14 +2,15 @@
   "name": "Dimensional Ores",
   "icon": "retco:dimensional_residue_ore",
   "category": "retco:getting_started",
+  "sortnum": 1,
   "pages": [
     {
         "type": "text",
-        "text": "Ok recruit, listen up! The first thing you need to do is find some of the precious dimensional residue. Dimensional residue is a near-crystal-like substance that has bled over into our dimension from another one. When harvested we can re-purpose it for ReTCo."
+        "text": "Ok recruit, listen up! The first thing you need to do is find some of the precious dimensional residue. Dimensional residue is a near-crystal-like substance that has bled over into our dimension from another one. When harvested we can re-purpose it for ReTCo. $(br2) The ore generates below y-level 30 in small veins"
     },
     {
       "type": "text",
-      "text": "The ore generates below y-level 30 in small veins assuming no one has messed with that pesky configuration controller."
+      "text": "assuming no one has messed with that pesky configuration controller."
     }
   ]
 }

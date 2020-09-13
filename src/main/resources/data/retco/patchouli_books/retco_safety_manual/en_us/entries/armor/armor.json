@@ -1,0 +1,22 @@
+{
+  "name": "Dimensional Armor",
+  "icon": "retco:dimensional_chestplate",
+  "category": "retco:armor",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Protection is important and there is nothing like the feeling of dimensional armor absorbing a blow from a sword or arrow. Check out how to create some protection that is even better than diamond armor!"
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:dimensional_helmet",
+      "recipe2": "retco:dimensional_chestplate"
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:dimensional_leggings",
+      "recipe2": "retco:dimensional_boots"
+    }
+  ]
+}

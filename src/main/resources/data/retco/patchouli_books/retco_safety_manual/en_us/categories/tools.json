@@ -1,5 +1,6 @@
 {
-	"name": "Getting Started",
+	"name": "Tools",
 	"description": "Now that you have a handle on creating dimensional ingots, let's put those ingot to use in helping you gather normal materials.",
-	"icon": "retco:dimensional_pickaxe"
+  "icon": "retco:dimensional_pickaxe",
+  "sortnum": 2
 }

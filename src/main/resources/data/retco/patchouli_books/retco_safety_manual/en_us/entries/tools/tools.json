@@ -1,0 +1,26 @@
+{
+  "name": "Dimensional Tools",
+  "icon": "retco:dimensional_pickaxe",
+  "category": "retco:tools",
+  "sortnum": 4,
+  "pages": [
+    {
+      "type": "text",
+      "text": "With some dimensional ingots we can create tools to help on the job. These tools are considered to be about one tier up from diamond tools."
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:dimensional_sword",
+      "recipe2": "retco:dimensional_pickaxe"
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:dimensional_axe",
+      "recipe2": "retco:dimensional_shovel"
+    },
+    {
+      "type": "crafting",
+      "recipe": "retco:dimensional_hoe"
+    }
+  ]
+}

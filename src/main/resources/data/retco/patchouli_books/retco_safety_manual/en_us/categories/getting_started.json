@@ -1,5 +1,6 @@
 {
 	"name": "Getting Started",
 	"description": "Welcome to your first lesson in how to properly handle dimensional matter. In this section we will go over finding and refining dimensional ore.",
-	"icon": "retco:dimensional_residue_ore"
+  "icon": "retco:dimensional_residue_ore",
+  "sortnum": 1
 }

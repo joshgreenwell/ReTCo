@@ -1,5 +1,6 @@
 {
-	"name": "Getting Started",
-	"description": "Ok, now here we have to be careful. Dimensional energy siphoning is not small thing, especially if you don't know what you are doing.",
-	"icon": "retco:dimensional_energy_siphoner"
+	"name": "Energy Generation",
+	"description": "Ok, now here we have to be careful. Dimensional energy siphoning is no small thing, especially if you don't know what you are doing.",
+  "icon": "retco:dimensional_energy_siphoner",
+  "sortnum": 5
 }

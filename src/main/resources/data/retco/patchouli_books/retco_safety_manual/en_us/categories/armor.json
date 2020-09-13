@@ -1,5 +1,6 @@
 {
-	"name": "Getting Started",
+	"name": "Armor",
 	"description": "Now that you have a handle on creating dimensional ingots, maybe we can find a way to use them as a form of protection... or more?",
-	"icon": "retco:dimensional_chestplate"
+  "icon": "retco:dimensional_chestplate",
+  "sortnum": 3
 }

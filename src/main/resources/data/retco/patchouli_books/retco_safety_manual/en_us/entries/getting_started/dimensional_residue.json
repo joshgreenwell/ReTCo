@@ -2,6 +2,7 @@
   "name": "Dimensional Residue",
   "icon": "retco:dimensional_residue",
   "category": "retco:getting_started",
+  "sortnum": 2,
   "pages": [
     {
       "type": "text",
