@@ -1,6 +1,7 @@
 package mod.puglove.retco.registries;
 
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.block.CompressorBlock;
 import mod.puglove.retco.block.DimensionalEnergySiphonerBlock;
 import mod.puglove.retco.block.DimensionalEnergySiphonerMK2Block;
 import mod.puglove.retco.block.DimensionalEnergySiphonerMK3Block;
@@ -45,5 +46,9 @@ public class ModBlocks {
   // Processing
   public static final RegistryObject<MatterChangerBlock> MATTER_CHANGER = BLOCKS.register("matter_changer",
       () -> new MatterChangerBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 1200.0F)
+          .harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)));
+
+  public static final RegistryObject<CompressorBlock> COMPRESSOR = BLOCKS.register("compressor",
+      () -> new CompressorBlock(Block.Properties.create(Material.IRON).hardnessAndResistance(5.0F, 1200.0F)
           .harvestTool(ToolType.PICKAXE).sound(SoundType.METAL)));
 }

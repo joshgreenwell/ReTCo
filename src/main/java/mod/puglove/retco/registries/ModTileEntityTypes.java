@@ -1,6 +1,7 @@
 package mod.puglove.retco.registries;
 
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.tileentity.CompressorTileEntity;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK2TileEntity;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerMK3TileEntity;
 import mod.puglove.retco.tileentity.DimensionalEnergySiphonerTileEntity;
@@ -43,8 +44,10 @@ public final class ModTileEntityTypes {
               .build(null));
 
   public static final RegistryObject<TileEntityType<MatterChangerTileEntity>> MATTER_CHANGER = TILE_ENTITY_TYPES
-      .register("matter_changer",
-          () -> TileEntityType.Builder
-              .create(MatterChangerTileEntity::new, ModBlocks.MATTER_CHANGER.get())
-              .build(null));
+      .register("matter_changer", () -> TileEntityType.Builder
+          .create(MatterChangerTileEntity::new, ModBlocks.MATTER_CHANGER.get()).build(null));
+
+  public static final RegistryObject<TileEntityType<CompressorTileEntity>> COMPRESSOR = TILE_ENTITY_TYPES
+      .register("compressor", () -> TileEntityType.Builder
+          .create(CompressorTileEntity::new, ModBlocks.MATTER_CHANGER.get()).build(null));
 }

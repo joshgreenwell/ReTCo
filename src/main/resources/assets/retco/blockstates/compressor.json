@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north":	{ "model": "retco:block/compressor" },
+		"facing=south":	{ "model": "retco:block/compressor", "y": 180 },
+		"facing=west":	{ "model": "retco:block/compressor", "y": 270 },
+		"facing=east":	{ "model": "retco:block/compressor", "y": 90 }
+	}
+}

@@ -1,6 +1,7 @@
 package mod.puglove.retco.registries;
 
 import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.container.CompressorContainer;
 import mod.puglove.retco.container.DimensionalEnergySiphonerContainer;
 import mod.puglove.retco.container.DimensionalEnergySiphonerMK2Container;
 import mod.puglove.retco.container.DimensionalEnergySiphonerMK3Container;
@@ -28,6 +29,8 @@ public final class ModContainerTypes {
           () -> IForgeContainerType.create(DimensionalEnergySiphonerMK3Container::new));
 
   public static final RegistryObject<ContainerType<MatterChangerContainer>> MATTER_CHANGER = CONTAINER_TYPES
-      .register("matter_changer",
-          () -> IForgeContainerType.create(MatterChangerContainer::new));
+      .register("matter_changer", () -> IForgeContainerType.create(MatterChangerContainer::new));
+
+  public static final RegistryObject<ContainerType<CompressorContainer>> COMPRESSOR = CONTAINER_TYPES
+      .register("compressor", () -> IForgeContainerType.create(CompressorContainer::new));
 }
