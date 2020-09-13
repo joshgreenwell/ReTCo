@@ -38,16 +38,6 @@ public class DimensionalEnergySiphonerScreen extends ContainerScreen<Dimensional
   }
 
   @Override
-  protected void drawGuiContainerForegroundLayer(final int mouseX, final int mouseY) {
-    super.drawGuiContainerForegroundLayer(mouseX, mouseY);
-    // Copied from AbstractFurnaceScreen#drawGuiContainerForegroundLayer
-    String s = this.title.getFormattedText();
-    this.font.drawString(s, (float) (this.xSize / 2 - this.font.getStringWidth(s) / 2), 6.0F, 0x404040);
-    this.font.drawString(this.playerInventory.getDisplayName().getFormattedText(), 8.0F, (float) (this.ySize - 96 + 2),
-        0x404040);
-  }
-
-  @Override
   protected void drawGuiContainerBackgroundLayer(final float partialTicks, final int mouseX, final int mouseY) {
     RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
     getMinecraft().getTextureManager().bindTexture(BACKGROUND_TEXTURE);

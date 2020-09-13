@@ -1,6 +1,8 @@
 {
-	"parent": "block/furnace",
+	"parent": "block/orientable",
 	"textures": {
-		"front": "retco:block/dimensional_block"
+    "top": "retco:block/metal2",
+    "front": "retco:block/matter_changer",
+    "side": "retco:block/metal2"
 	}
 }

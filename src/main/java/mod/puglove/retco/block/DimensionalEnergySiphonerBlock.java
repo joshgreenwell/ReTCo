@@ -36,8 +36,11 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class DimensionalEnergySiphonerBlock extends Block {
+  // private static final VoxelShape SHAPE = Stream
+  //     .of(Block.makeCuboidShape(1, 0, 1, 15, 13, 15), Block.makeCuboidShape(2, 13, 2, 14, 14, 14))
+  //     .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
   private static final VoxelShape SHAPE = Stream
-      .of(Block.makeCuboidShape(1, 0, 1, 15, 13, 15), Block.makeCuboidShape(2, 13, 2, 14, 14, 14))
+      .of(Block.makeCuboidShape(0, 0, 0, 16, 16, 16))
       .reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
   public DimensionalEnergySiphonerBlock(final Properties properties) {

@@ -14,15 +14,15 @@ public class EnhancedMatterChestplate extends ArmorItem {
     super(materialIn, slot, builder.setNoRepair().maxStackSize(1));
   }
 
-  @Override
-  public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
-      // safety check
-      return 0;
-  }
+  // @Override
+  // public <T extends LivingEntity> int damageItem(ItemStack stack, int amount, T entity, Consumer<T> onBroken) {
+  //     // safety check
+  //     return 0;
+  // }
 
-  @Override
-  public boolean showDurabilityBar(ItemStack stack) {
-      return true;
-  }
+  // @Override
+  // public boolean showDurabilityBar(ItemStack stack) {
+  //     return true;
+  // }
 
 }
