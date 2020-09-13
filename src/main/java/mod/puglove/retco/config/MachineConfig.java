@@ -82,14 +82,14 @@ public final class MachineConfig extends BaseReTCoConfig {
             .defineInRange("dimensionalEnergySiphonerMK3TransferRate", 25_000, 10_000, 100_000));
 
     compressorCostPerTick = CachedIntValue.wrap(this,
-        builder.comment("Determines how much energy the dimensional energy siphoner will generate per tick.")
-            .defineInRange("dimensionalEnergySiphonerMK3Generate", 20, 0, 1_000));
+        builder.comment("Determines how much energy the will cost per tick.")
+            .defineInRange("compressorCostPerTick", 20, 0, 1_000));
     compressorCapacity = CachedIntValue.wrap(this,
-        builder.comment("Determines how much energy the dimensional energy siphoner can hold.")
-            .defineInRange("dimensionalEnergySiphonerMK3Capacity", 50_000, 10_000, 100_000));
+        builder.comment("Determines how much energy the compressor can hold.")
+            .defineInRange("compressorCapacity", 50_000, 10_000, 100_000));
     compressorMaxInput = CachedIntValue.wrap(this,
-        builder.comment("Determines the maximum energy the dimensional energy siphoner can receive.")
-            .defineInRange("dimensionalEnergySiphonerMK3MaxInput", 1_000, 100, 10_000));
+        builder.comment("Determines the maximum energy the compressor can receive.")
+            .defineInRange("compressorMaxInput", 1_000, 100, 10_000));
 
     builder.pop();
     configSpec = builder.build();
