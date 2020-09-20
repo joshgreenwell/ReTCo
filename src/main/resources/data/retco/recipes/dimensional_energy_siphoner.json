@@ -1,0 +1,28 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"%@%",
+		"$#$",
+		"%^%"
+	],
+	"key": {
+		"#": {
+			"item": "retco:machine_casing"
+    },
+    "$": {
+			"item": "minecraft:gold_ingot"
+    },
+    "@": {
+      "item": "minecraft:obsidian"
+    },
+    "%": {
+      "item": "minecraft:stone"
+    },
+    "^": {
+      "item": "minecraft:redstone"
+    }
+	},
+	"result": {
+		"item": "retco:dimensional_energy_siphoner"
+	}
+}

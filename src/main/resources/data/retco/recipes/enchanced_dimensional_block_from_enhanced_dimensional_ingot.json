@@ -1,0 +1,16 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"###",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "retco:enhanced_dimensional_ingot"
+		}
+	},
+	"result": {
+		"item": "retco:enhanced_dimensional_block"
+	}
+}

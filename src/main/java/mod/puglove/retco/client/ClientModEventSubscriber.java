@@ -1,0 +1,53 @@
+package mod.puglove.retco.client;
+
+import net.minecraft.client.gui.ScreenManager;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DeferredWorkQueue;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import mod.puglove.retco.ReTCo;
+import mod.puglove.retco.client.gui.DimensionalEnergySiphonerScreen;
+import mod.puglove.retco.client.gui.DimensionalEnergySiphonerMK2Screen;
+import mod.puglove.retco.client.gui.DimensionalEnergySiphonerMK3Screen;
+import mod.puglove.retco.client.gui.DimensionalEnergySiphonerMK4Screen;
+import mod.puglove.retco.client.gui.DimensionalEnergySiphonerMK5Screen;
+import mod.puglove.retco.registries.ReTCoContainerTypes;
+
+/**
+ * Subscribe to events from the MOD EventBus that should be handled on the PHYSICAL CLIENT side in this class
+ *
+ * @author Cadiboo
+ */
+@EventBusSubscriber(modid = ReTCo.MODID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+public final class ClientModEventSubscriber {
+
+	private static final Logger LOGGER = LogManager.getLogger(ReTCo.LOG_TAG + " Client Event Subscriber");
+
+	/**
+	 * We need to register our renderers on the client because rendering code does not exist on the server
+	 * and trying to use it on a dedicated server will crash the game.
+	 * <p>
+	 * This method will be called by Forge when it is time for the mod to do its client-side setup
+	 * This method will always be called after the Registry events.
+	 * This means that all Blocks, Items, TileEntityTypes, etc. will all have been registered already
+	 */
+	@SubscribeEvent
+	public static void onFMLClientSetupEvent(final FMLClientSetupEvent event) {
+		// Register ContainerType Screens
+		// ScreenManager.registerFactory is not safe to call during parallel mod loading so we queue it to run later
+		DeferredWorkQueue.runLater(() -> {
+      ScreenManager.registerFactory(ReTCoContainerTypes.DIMENSIONAL_ENERGY_SIPHONER.get(), DimensionalEnergySiphonerScreen::new);
+      ScreenManager.registerFactory(ReTCoContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK2.get(), DimensionalEnergySiphonerMK2Screen::new);
+      ScreenManager.registerFactory(ReTCoContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK3.get(), DimensionalEnergySiphonerMK3Screen::new);
+      ScreenManager.registerFactory(ReTCoContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK4.get(), DimensionalEnergySiphonerMK4Screen::new);
+      ScreenManager.registerFactory(ReTCoContainerTypes.DIMENSIONAL_ENERGY_SIPHONER_MK5.get(), DimensionalEnergySiphonerMK5Screen::new);
+			LOGGER.debug("Registered ContainerType Screens");
+		});
+
+	}
+
+}

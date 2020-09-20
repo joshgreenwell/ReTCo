@@ -1,0 +1,25 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"@@@",
+		"$^$",
+		"$#$"
+	],
+	"key": {
+		"#": {
+			"item": "retco:dimensional_energy_siphoner_mk2"
+    },
+    "$": {
+			"item": "retco:enhanced_dimensional_ingot"
+    },
+    "@": {
+      "item": "minecraft:iron_ingot"
+    },
+    "^": {
+      "item": "minecraft:redstone_block"
+    }
+	},
+	"result": {
+		"item": "retco:dimensional_energy_siphoner_mk3"
+	}
+}

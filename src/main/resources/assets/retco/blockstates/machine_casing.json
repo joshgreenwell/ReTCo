@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "retco:block/machine_casing"
+		}
+	}
+}

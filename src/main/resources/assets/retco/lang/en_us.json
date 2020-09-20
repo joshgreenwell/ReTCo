@@ -1,0 +1,32 @@
+{
+  "block.retco.dimensional_energy_siphoner": "Dimensional Energy Siphoner",
+  "block.retco.dimensional_energy_siphoner_mk2": "Dimensional Energy Siphoner MK2",
+  "block.retco.dimensional_energy_siphoner_mk3": "Dimensional Energy Siphoner MK3",
+  "block.retco.dimensional_energy_siphoner_mk4": "Dimensional Energy Siphoner MK4",
+  "block.retco.dimensional_energy_siphoner_mk5": "Dimensional Energy Siphoner MK5",
+  "block.retco.dimensional_residue_ore": "Dimensional Residue Ore",
+  "block.retco.dimensional_block": "Dimensional Block",
+  "block.retco.enhanced_dimensional_block": "Enhanced Dimensional Block",
+  "block.retco.machine_casing": "Machine Casing",
+
+  "item.retco.dimensional_residue": "Dimensional Residue",
+  "item.retco.dimensional_ingot": "Dimensional Ingot",
+  "item.retco.enhanced_dimensional_ingot": "Enhanced Dimensional Ingot",
+  "item.retco.flight_circuit": "Flight Circuit",
+  "item.retco.flight_control_unit": "Flight Control Unit",
+  "item.retco.energy_core": "Energy Core",
+
+  "item.retco.grub": "Grub",
+  
+  "itemGroup.retco": "ReTCo",
+  
+  "gui.retco.energy": "Energy: %s",
+  "gui.retco.energy_generated": "Generates: %s FE/t",
+
+  "message:dimensional_energy_siphoner": "Crudely siphons energy from another dimension at %s FE/t",
+  "message:dimensional_energy_siphoner_mk2": "Inefficiently siphons energy from another dimension at %s FE/t",
+  "message:dimensional_energy_siphoner_mk3": "Siphons energy from another dimension at %s FE/t",
+  "message:dimensional_energy_siphoner_mk4": "Siphons energy from another dimension at %s FE/t,",
+  "message:dimensional_energy_siphoner_mk4_2": "but it doesn't feel as efficient as it could be",
+  "message:dimensional_energy_siphoner_mk5": "Siphons energy from another dimension at %s FE/t"
+}

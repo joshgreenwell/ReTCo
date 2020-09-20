@@ -1,0 +1,8 @@
+{
+	"parent": "block/orientable",
+	"textures": {
+    "top": "retco:block/dimensional_energy_siphoner_mk5_top",
+    "front": "retco:block/dimensional_energy_siphoner",
+    "side": "retco:block/machine_side"
+	}
+}

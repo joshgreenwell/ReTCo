@@ -1,0 +1,14 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "retco:dimensional_residue"
+    },
+    {
+			"item": "minecraft:iron_ingot"
+		}
+	],
+	"result": {
+		"item": "retco:dimensional_ingot"
+	}
+}
